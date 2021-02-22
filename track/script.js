@@ -8,13 +8,12 @@ let margin = {
 
 var svg = d3.select("#viz")
   .append("svg")
-    .attr("viewBox", "0 0 600 800")
+    .attr("viewBox", "0 0 " + 600 + " " +  500 + "")
   .append('g')
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-
 //inner width & height 
-let height = 800 - margin.top - margin.bottom
+let height = 500 - margin.top - margin.bottom
 let width = 600 - margin.left - margin.right
 
 // // setup svg & add group
@@ -55,19 +54,23 @@ d3.csv("mydata.csv").then(data =>{
     // filter
     // data = data.filter(d => d.carat > 2.5)
     
+    var firstDay = new Date(2021, 0, 23);
+
     // scales
     let xScale = d3.scaleTime()
-        .domain(d3.extent(data, d => d.date))
+        .domain([firstDay, d3.max(data, d => d.date)])
         .range([0,width])
         .nice()
     
     let yScale = d3.scaleLinear()
-        .domain(d3.extent(data, d => d.tone))
-        .range([height,0])
+        .domain([0,20])
+        .range([height,0]);
+
+        console.log(firstDay)
 
     let colorScale = d3.scaleSequential()
-        .domain(d3.extent(data, d => d.rating))
-        .interpolator(d3.interpolate("blue", "pink"))
+        .domain([d3.max(data, d => d.rating),d3.min(data, d => d.rating)])
+        .interpolator(d3.interpolatePuBu)
 
     // load points
     let points = svg.selectAll('circle')

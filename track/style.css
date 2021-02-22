@@ -1,7 +1,7 @@
 #container {
   display: grid;
   grid-template-areas: "title title"
-                       "canvas description "
+                       "canvas description"
                        "canvas legend";
   grid-template-rows: .1fr 1fr 1fr ;
   grid-template-columns: 1fr .3fr;
@@ -26,7 +26,8 @@ div.tooltip {
   }
 
   #y-axis, #x-axis {
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 9px;
     font-weight: 700;
     color: grey;
     opacity: 75%;
@@ -50,18 +51,39 @@ div.tooltip {
 
   #description {
     font-family: 'Ubuntu Mono', monospace;
-    font-size: 15px;
+    font-size: 16px;
     grid-area: description;
-    margin-top: 50;
+    margin-top: 70;
+    hyphens: auto;
+    margin-right: 25px;
   }
 
-  #legend {
+  .description-title {
+    font-family: 'Amatic SC', cursive;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  #tone {
     position: fixed;
-    bottom: 50;
-    right: 50;
-    grid-area: legend;
+    /* grid-area: legend; */
+    bottom: 50px;
+    right: 50px;
+    border: 1px solid grey;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 10px;
   }
 
-  #legend-label {
+  #tone-label {
     font-size: 25px;
+  }
+
+  img {
+    /* grid-area: legend; */
+    position: fixed;
+    bottom: 50px;
+    right: 200px;
   }
