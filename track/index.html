@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Ubuntu+Mono&display=swap" rel="stylesheet">
 </head>
-<body>
+<body id="container">
     <div id="title">Dog Days</div>
     <div id="description">This is a description of my visualization. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
     <div id="legend">
-        <span class="legend-label"> Tone Scale</span>
+        <span id="legend-label"> Tone Scale</span>
         <br> 20 - positive <br> 15 - neutral <br> 10 - concerned <br> 5 - annoyed <br> 0 - negative
     </div>
-    <div id="container" class="svg-container"></div>
+    <div id="viz"></div>
 </body>
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <script src="script.js"></script>   

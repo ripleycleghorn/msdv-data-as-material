@@ -1,12 +1,12 @@
 //global
 let margin = {
     left:25,
-    right:150,
+    right:25,
     top:50,
     bottom:50
 }
 
-var svg = d3.select("div#container")
+var svg = d3.select("#viz")
   .append("svg")
     .attr("viewBox", "0 0 600 800")
   .append('g')
