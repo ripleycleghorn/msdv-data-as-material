@@ -53,7 +53,6 @@ div.tooltip {
     font-family: 'Ubuntu Mono', monospace;
     font-size: 16px;
     grid-area: description;
-    margin-top: 70;
     hyphens: auto;
     margin-right: 25px;
   }

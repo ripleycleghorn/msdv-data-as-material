@@ -2,7 +2,7 @@
 let margin = {
     left:25,
     right:25,
-    top:50,
+    top:20,
     bottom:50
 }
 
