@@ -1,0 +1,51 @@
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    width: 200px;
+    padding: 2px;
+    background: black;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+    hyphens: auto;
+    font-size: 25px;
+    color: white;
+  }
+
+  #y-axis, #x-axis {
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    color: grey;
+    opacity: 75%;
+  }
+
+  #title {
+    text-align: center;
+    font-weight: 700;
+    font-size: 75px;
+  }
+
+  body {
+    background: beige;
+    font-family: 'Amatic SC', cursive;
+  }
+
+  #description {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 20px;
+    position: absolute;
+    right: 0px;
+    top: 200px;
+    width: 350px;
+  }
+
+  #legend {
+    width: 20%;
+    position: fixed;
+    bottom: 50;
+    right: 10;
+  }
+
+  .legend-label {
+    font-size: 25px;
+  }

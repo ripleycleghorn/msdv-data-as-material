@@ -4,10 +4,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dog Days</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Ubuntu+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="vis"></div>
+    <div id="title">Dog Days</div>
+    <div id="description">This is a description of my visualization. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+    <div id="legend">
+        <span class="legend-label"> Tone Scale</span>
+        <br> 20 - positive <br> 15 - neutral <br> 10 - concerned <br> 5 - annoyed <br> 0 - negative
+    </div>
+    <div id="container" class="svg-container"></div>
 </body>
 <script src="https://d3js.org/d3.v6.min.js"></script>
 <script src="script.js"></script>   
 </html>
+
+
+<!-- Non applicable data
+"01/27/2021","Woman who talked about how she bought her dog because she knew he was the one, had never done that before!",10,5 
+"01/27/2021","He looks just like his mom",-10,8
+"01/29/2021","I asked the woman if her dogs were friendly",
+"02/03/2021","Guy who wrapped around his leash asked if he was a puppy.",15,5
+"02/15/2021","What a pretty dog!",-->

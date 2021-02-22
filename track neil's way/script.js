@@ -1,33 +1,27 @@
-//global
+//global variables
+let svgWidth = 800
+let svgHeight = svgWidth * 0.75
+
 let margin = {
-    left:25,
-    right:150,
+    left:70,
+    right:50,
     top:50,
     bottom:50
 }
 
-var svg = d3.select("div#container")
-  .append("svg")
-    .attr("viewBox", "0 0 600 800")
-  .append('g')
+//inner width & height 
+let height = 600 - margin.top - margin.bottom
+let width = 800 - margin.left - margin.right
+
+// setup svg & add group
+let svg = d3.select('#vis')
+    .append('svg')
+    .attr('height', svgHeight)
+    .attr('width', svgWidth)
+    .append('g')
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-//inner width & height 
-let height = 800 - margin.top - margin.bottom
-let width = 600 - margin.left - margin.right
-
-// // setup svg & add group
-// let svg = d3.select('#vis')
-//     .append('svg')
-//     .attr('height', svgHeight)
-//     .attr('width', svgWidth)
-//     .append('g')
-//     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-var div = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
 
 // load in data
 d3.csv("mydata.csv").then(data =>{
@@ -36,10 +30,9 @@ d3.csv("mydata.csv").then(data =>{
     // parse
     data.forEach(d => {
         d.date = new Date(d.date)
-        d.comment = String(d.comment)
+        d.comment = +d.comment
         d.tone = +d.tone
         d.rating = +d.rating
-        d.length = +d.comment.length
     })
 
     //alternative
@@ -77,33 +70,28 @@ d3.csv("mydata.csv").then(data =>{
             .attr('cx', d => xScale(d.date))
             .attr('cy', d => yScale(d.tone))
             .attr('fill',d => colorScale(d.rating))
-            .on("mouseover", function(event,d) {
-                div.transition()
-                  .duration(200)
-                  .style("opacity", .9)
-                  .style("height", d.length);
-                div.html(d.comment)
-                  .style("left", (event.pageX) + "px")
-                  .style("top", (event.pageY - 28) + "px");
-                })
-              .on("mouseout", function(d) {
-                div.transition()
-                  .duration(500)
-                  .style("opacity", 0);
-                });
+            .on("mouseover", function(){
+                d3.select(this)
+                .raise()
+                .transition()
+                .attr("r", 25)
+            })
+            .on("mouseout", function(){
+                d3.select(this)
+                .transition()
+                .duration(2000)
+                .attr("r", 5)
+            })
     
     
 
     // axis
-    let xAxis = d3.axisTop(xScale)
+    let xAxis = d3.axisBottom(xScale)
         .tickFormat(d3.timeFormat("%m/%d"))
-
-    let yAxis = d3.axisLeft(yScale);
 
     //add svg group to append axis
     svg.append("g")
-        //when this is commented, the axis is at the top instead of the bottom
-        // .attr("transform", `translate(0,${height})`)
+        .attr("transform", `translate(0,${height})`)
         .attr("id", "x-axis")
 
     svg.append("g")
@@ -112,10 +100,11 @@ d3.csv("mydata.csv").then(data =>{
 
     //append axis
     d3.select('#x-axis')
+        .transition()
         .call(xAxis)
 
     d3.select('#y-axis')
-        .call(yAxis)
+        .call(d3.axisLeft(yScale))
 
 })
 
