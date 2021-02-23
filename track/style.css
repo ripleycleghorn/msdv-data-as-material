@@ -4,7 +4,7 @@
                        "canvas description"
                        "canvas legend";
   grid-template-rows: .1fr 1fr 1fr ;
-  grid-template-columns: 1fr .5fr;
+  grid-template-columns: 1fr .4fr;
 }
 
 div {
@@ -51,7 +51,7 @@ div.tooltip {
 
   #description {
     font-family: 'Ubuntu Mono', monospace;
-    font-size: 16px;
+    font-size: 14px;
     grid-area: description;
     hyphens: auto;
     margin-right: 25px;
