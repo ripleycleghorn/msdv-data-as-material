@@ -1,0 +1,13 @@
+body{
+	margin:auto;
+	padding:0;
+	width: 50%;
+}
+p{
+	/* margin:20px; */
+	font-size:15px;
+}
+
+.number {
+	font-size: 25px;
+}
